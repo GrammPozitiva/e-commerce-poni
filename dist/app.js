@@ -21214,9 +21214,15 @@ class ProductList extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'row-container' },
-        __WEBPACK_IMPORTED_MODULE_3__cards_json___default.a.reduce((acc, el) => {
+        __WEBPACK_IMPORTED_MODULE_3__cards_json___default.a.reduce((acc, el, i, a) => {
           if (acc.length < 20 && this.state.filter(el)) {
             acc.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__ProductCard__["a" /* default */], { key: el.id, name: el.name, kind: el.kind, price: el.price, color: el.color, image: el.image }));
+          } else if (a.length - 1 === i && acc.length === 0) {
+            acc.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { key: 'products-empty' },
+              '\u0422\u043E\u0432\u0430\u0440\u044B \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u044B '
+            ));
           }
           return acc;
         }, [])
